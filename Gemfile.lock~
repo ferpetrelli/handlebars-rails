@@ -3,7 +3,7 @@ PATH
   specs:
     handlebars-rails (0.1.0)
       rails (~> 3.0)
-      therubyracer (~> 0.8.0)
+      therubyracer (~> 0.8.)
 
 GEM
   remote: http://rubygems.org/
