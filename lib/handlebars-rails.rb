@@ -6,7 +6,7 @@ module Handlebars
   class TemplateHandler
 
     def self.js
-      handlebars = File.join(Rails.root, "vendor", "javascripts", "handlebars.js")
+      handlebars = File.join(Rails.root, "vendor", "assets", "javascripts", "handlebars.js")
 
       unless File.exists?(handlebars)
         raise "Could not find handlebars.js. Please copy it to #{handlebars}"
@@ -30,6 +30,8 @@ module Handlebars
     end
 
     def self.call(template)
+
+      Rails.logger.debug "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< " + template.inspect
       # Here, we're sticking the compiled template somewhere in V8 where
       # we can get back to it
       js.eval(%{Templates["#{template.identifier}"] = Handlebars.compile(#{template.source.inspect}) })
